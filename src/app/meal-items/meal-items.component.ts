@@ -55,7 +55,9 @@ export class MealItemsComponent implements OnInit {
       data:mealItem
     })
     dialogRef.afterClosed().subscribe(result =>{
-      console.log("close");
+      if(result.event === 'submit'){
+        console.log(result.data)
+      }
     });
   
   }

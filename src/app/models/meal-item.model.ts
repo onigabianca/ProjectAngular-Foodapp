@@ -1,9 +1,9 @@
 export interface MealItemModel{
     id: number,
-    foodItem: String,
+    foodItem: string,
     calories: number,
     quantity: number,
-    category: String,
-    typeOfNutrient: String,
+    category: string,
+    typeOfNutrient: string,
     weight: number,
 }
