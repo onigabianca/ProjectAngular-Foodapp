@@ -1,0 +1,23 @@
+<div>
+    <form [formGroup]= "mealItemForm">
+        <mat-form-field appearance= "fill" style="margin: 10px 20px 10px 20px">
+            <mat-label>Food Item</mat-label>
+            <input matInput id = "foodItem" type= "text" formControlName="foodItem">
+          </mat-form-field>   
+
+          <mat-form-field appearance= "fill" style="margin: 10px 20px 10px 20px">
+            <mat-label>Calories</mat-label>
+            <input matInput id = "calories" type= "text" formControlName="calories">
+          </mat-form-field>   
+
+          <mat-form-field appearance= "fill" style="margin: 10px 20px 10px 20px">
+            <mat-label>Quantity</mat-label>
+            <input matInput id = "quantity" type= "text" formControlName="foodItem">
+          </mat-form-field>   
+
+<div>
+    <button mat-raised-button color = "primary" style = "margin: 10px 35px 10px 35px"> Save </button>
+    <button mat-raised-button color = "warn" (click)= "cancel()"> Cancel </button>
+        </div>
+    </form>
+</div>

@@ -3,6 +3,8 @@ import { MealItemsApiService } from '../services/meal-items-api.service';
 import { MealItemModel } from '../models/meal-item.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { MealItemFormComponent } from '../meal-item-form/meal-item-form.component';
 
 @Component({
   selector: 'app-meal-items',
@@ -16,7 +18,7 @@ export class MealItemsComponent implements OnInit {
   dataSource : any;
 
 
-  constructor(private mealItemsApi: MealItemsApiService){
+  constructor(private mealItemsApi: MealItemsApiService, private dialogRef: MatDialog){
 
   }
 
@@ -43,9 +45,18 @@ export class MealItemsComponent implements OnInit {
       });
     }
 
+  
    
-  update():void{
-    console.log("UPDATE!")
+  openDialog (mealItem: MealItemModel):void{
+    const dialogRef=this.dialogRef.open(MealItemFormComponent,{
+      width:'250px',
+      backdropClass: 'custom-dialog-backdrop-class',
+      panelClass: 'custom-dialog-panel-class',
+      data:mealItem
+    })
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log("close");
+    });
   
   }
 
