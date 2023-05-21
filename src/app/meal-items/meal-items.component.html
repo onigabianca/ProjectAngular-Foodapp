@@ -1,0 +1,60 @@
+<div class = "mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let mealItem"> {{mealItem.id}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="foodItem">
+              <th mat-header-cell *matHeaderCellDef> Food Item </th>
+              <td mat-cell *matCellDef="let mealItem"> {{mealItem.foodItem}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="calories">
+              <th mat-header-cell *matHeaderCellDef> Calories </th>
+              <td mat-cell *matCellDef="let mealItem"> {{mealItem.calories}} </td>
+            </ng-container>
+          
+
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let mealItem"> {{mealItem.quantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="category">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let mealItem"> {{mealItem.category}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="typeOfNutrient">
+                <th mat-header-cell *matHeaderCellDef> Type Of Nutrient </th>
+                <td mat-cell *matCellDef="let mealItem"> {{mealItem.typeOfNutrients}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let mealItem"> {{mealItem.weight}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let mealItem"> 
+                  <button mat-button color = "accent">Update</button>
+                  <button mat-button color = "warn">Delete</button>
+                </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[2, 10, 20]"
+               showFirstLastButtons
+              aria-label="Select page of periodic elements">
+         </mat-paginator>
+
+
+          </div>
+          
+  
