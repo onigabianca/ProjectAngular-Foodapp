@@ -27,6 +27,7 @@ export class MealItemsComponent implements OnInit {
     this.mealItemsApi.getAll().subscribe(res =>{
       console.log(res);
       this.dataSource = new MatTableDataSource<MealItemModel>(res.map((mealItem:any)=>{
+        console.log(mealItem);
         return{
           id: mealItem.id,
           foodItem: mealItem.foodItem,
@@ -56,6 +57,7 @@ export class MealItemsComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result =>{
       if(result.event === 'submit'){
+        this.mealItemsApi.updateMealItem(mealItem.id,result.data)
         console.log(result.data)
       }
     });

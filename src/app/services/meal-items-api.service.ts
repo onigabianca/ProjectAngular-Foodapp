@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MealItemModel } from '../models/meal-item.model';
 
 
 @Injectable({
@@ -15,11 +16,11 @@ export class MealItemsApiService {
     return result;
   }
 
-  /*updateMealItem(id:number, request: MealItemModel): Observable<any> {
+  updateMealItem(id:number, request: MealItemModel): Observable<any> {
     return this.httpClient.put(this.url + "/" + id, request);
   }
 
-  addMealItem(request: MealItemModel): Observable<any> {
+ /* addMealItem(request: MealItemModel): Observable<any> {
     return this.httpClient.post(this.url , request);
   }
 
