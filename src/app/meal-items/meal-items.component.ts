@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MealItemFormComponent } from '../meal-item-form/meal-item-form.component';
 
+
 @Component({
   selector: 'app-meal-items',
   templateUrl: './meal-items.component.html',
@@ -26,7 +27,8 @@ export class MealItemsComponent implements OnInit {
   ngOnInit(): void {
     this.mealItemsApi.getAll().subscribe(res =>{
       console.log(res);
-      this.dataSource = new MatTableDataSource<MealItemModel>(res.map((mealItem:any)=>{
+      this.dataSource = new MatTableDataSource<MealItemModel>(
+        res.map((mealItem:any)=>{
         console.log(mealItem);
         return{
           id: mealItem.id,
@@ -57,11 +59,17 @@ export class MealItemsComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result =>{
       if(result.event === 'submit'){
-        this.mealItemsApi.updateMealItem(mealItem.id,result.data)
+        this.mealItemsApi.updateMealItem(mealItem.id,result.data).subscribe();
         console.log(result.data)
       }
-    });
+    })
   
   }
 
-  }
+  deleteMealItem(id: string): void {
+    this.mealItemsApi.deleteMealItem(id).subscribe() 
+      location.reload();
+    }
+    }
+
+  

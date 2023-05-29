@@ -15,6 +15,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import {NgFor} from '@angular/common';
+import {Component} from '@angular/core';
+
+interface typeOfNutrient {
+  value: string;
+  viewValue: string;
+}
 
 @NgModule({
   declarations: [
@@ -35,10 +42,31 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    NgFor,
+    
   
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export class SelectFormExample {
+  selectedValue: string;
+  selectedTypeOfNutrient: string;
+
+  @Component({
+    selector: 'select-overview-example',
+    templateUrl: 'select-overview-example.html',
+    standalone: true,
+    imports: [MatFormFieldModule, MatSelectModule, NgFor, MatInputModule, FormsModule],
+  })
+
+  typeOfNutrients : typeOfNutrient[] = [
+    {value: 'Protein-0', viewValue: 'Protein'},
+    {value: 'Carbohydrate-1', viewValue: 'Carbohydrate'},
+    {value: 'Lipid-2', viewValue: 'Lipid'},
+    {value: 'Vitamin-3', viewValue: 'Vitamin'},
+  ];}

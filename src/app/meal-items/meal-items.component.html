@@ -41,7 +41,7 @@
                 <th mat-header-cell *matHeaderCellDef> Actions </th>
                 <td mat-cell *matCellDef="let mealItem"> 
                   <button mat-button color = "accent" (click) ="openDialog (mealItem)">Update</button>
-                  <button mat-button color = "warn">Delete</button>
+                  <button mat-button color= "warn" (click) ="deleteMealItem(mealItem.id)">Delete</button>
                 </td>
               </ng-container>
           

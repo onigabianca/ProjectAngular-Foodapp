@@ -20,13 +20,10 @@ export class MealItemsApiService {
     return this.httpClient.put(this.url + "/" + id, request);
   }
 
- /* addMealItem(request: MealItemModel): Observable<any> {
-    return this.httpClient.post(this.url , request);
-  }
-
-  deleteMealItem(id:number): Observable<any> {
-    return this.httpClient.delete(this.url + "/" + id);
-  }
-}
-*/
+  deleteMealItem(id:string): Observable<any> {
+      return this.httpClient.delete(this.url + "/" + id, {
+      
+      }
+      );
+    }
 }

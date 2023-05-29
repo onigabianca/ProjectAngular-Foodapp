@@ -33,8 +33,8 @@ export class MealItemFormComponent implements OnInit{
     this.mealItemForm.controls.foodItem.setValue(this.currentMealItem.foodItem);
     this.mealItemForm.controls.calories.setValue(this.currentMealItem.calories.toString());
     this.mealItemForm.controls.quantity.setValue(this.currentMealItem.quantity.toString());
-    this.mealItemForm.controls.category.setValue(this.currentMealItem.category.toString());
-    this.mealItemForm.controls.typeOfNutrient.setValue(this.currentMealItem.typeOfNutrient.toString());
+    this.mealItemForm.controls.category.setValue(this.currentMealItem.category);
+    this.mealItemForm.controls.typeOfNutrient.setValue(this.currentMealItem.typeOfNutrient);
     this.mealItemForm.controls.weight.setValue(this.currentMealItem.weight.toString());
   }
 
